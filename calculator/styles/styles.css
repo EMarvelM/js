@@ -1,0 +1,27 @@
+:root{
+    --white-color: #fffff;
+    --black-color: #00000;
+    --light-gray: #d3d3d3;
+    --navy-blue: #000080;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box{
+    margin: auto;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+    min-width: 350px;
+    min-height: 500px;
+    background-color: var(--white-color);
+    border-radius: 5px;
+}
