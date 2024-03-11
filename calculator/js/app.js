@@ -37,4 +37,45 @@ allBtn.forEach( (btns) => btns.addEventListener('click', function (buttonKey) {
             console.log(buttonValue);
             allowChange = true;
         }
-    }
+    } else if (isNaN(Number(buttonValue)) && buttonValue !== ".") {
+        if (buttonValue !== "=" && buttonValue !== "AC"){
+            lastpressed = buttonValue;
+        }
+
+        if (buttonValue === "+") {
+            result += Number(outputI.value);
+            clearOuput();
+        } else if (buttonValue === "AC") {
+            clearOuput();
+            atFirst = true;
+            allowChange = true;
+            result = 0;
+        } else if (buttonValue === "-") {
+            // if number is at first do not minus but plus
+            if (atFirst === true) {
+                result += Number(outputI.value);
+                atFirst = false;
+                clearOuput();
+            } else {
+                result -= Number(outputI.value);
+                clearOuput();
+            }
+        } else if (buttonValue === "*") {
+            if (atFirst === true) {
+                result += Number(outputI.value);
+                atFirst = false;
+                clearOuput();
+            } else {
+                result *= Number(outputI.value);
+                clearOuput();
+            }
+        } else if (buttonValue === "/") {
+            if (atFirst === true) {
+                result += Number(outputI.value);
+                atFirst = false;
+                clearOuput();
+            } else {
+                result /= Number(outputI.value);
+                clearOuput();
+            }
+        }
