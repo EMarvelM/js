@@ -12,9 +12,8 @@ body{
 
 .center{
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
+    justify-content: center;
 }
 
 .outer-box{
@@ -22,17 +21,32 @@ body{
     padding: 20px;
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
     min-width: 350px;
-    min-height: 500px;
+    min-height: 600px;
     background-color: var(--white-color);
     border-radius: 5px;
 }
+.outer-box div:first-child{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
 
 .screen{
-    border-radius: 5px;
-    min-width: 100%;
-    min-height: 40px;
-    border: 2px solid black;
+    border-radius: 2px;
+    min-width: 395px;
+    min-height: 100px;
+    max-width: 395px;
+    outline: none;
+    border-color: transparent;
     text-align: right;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 28px;
+    background-color: var(--light-gray);
+    overflow: auto;
+    overflow-y: auto;
+}
+*:focus{
+    border-top: 1px solid var(--light-gray);
 }
 
 .hide {
@@ -45,7 +59,6 @@ body{
 .flex-row{
     flex-direction: row;
 }
-
 .btn{
     padding: 30px;
     font-size: 30px;
@@ -64,6 +77,7 @@ body{
 .btnleft .btn:nth-child(2){
     padding-block: 177.5px;
 }
+
 
 @media only screen and (max-device-width: 600px) {
     .btn{
@@ -92,4 +106,5 @@ body{
         background-color: var(--white-color);
         border-radius: 5px;
     }
+
 }
