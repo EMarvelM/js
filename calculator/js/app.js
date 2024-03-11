@@ -16,3 +16,25 @@ function clearOuput () {
     outputI.value = '';
     outputI.innerText = '';
 }
+
+let atFirst = true;
+let result = 0;
+let allowChange = true;
+let current = 0;
+let lastpressed = "";
+const allBtn = Array.from((document.querySelectorAll('.btn')));
+allBtn.forEach( (btns) => btns.addEventListener('click', function (buttonKey) {
+    let buttonValue = buttonKey.target.value;
+    if (buttonValue === "x") {
+        buttonValue = "*";
+    }
+
+    if (buttonValue === '.' || !(isNaN(Number(buttonValue)))) {
+        if (output.innerText.split('').filter( (num) => num === "." ).length < 1 || buttonValue !== ".") {
+            output.innerText += buttonValue;
+            outputI.value += buttonValue;
+            outputI.innerText += buttonValue;
+            console.log(buttonValue);
+            allowChange = true;
+        }
+    }
