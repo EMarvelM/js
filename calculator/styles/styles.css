@@ -17,11 +17,27 @@ body{
     height: 100vh;
 }
 
-.box{
+.outer-box{
     margin: auto;
+    padding: 20px;
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
     min-width: 350px;
     min-height: 500px;
     background-color: var(--white-color);
     border-radius: 5px;
+}
+
+.screen{
+    border-radius: 5px;
+    min-width: 100%;
+    min-height: 40px;
+    border: 2px solid black;
+    text-align: right;
+}
+
+.hide {
+    display: none;
+}
+.show {
+    display: block;
 }
