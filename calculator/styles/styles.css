@@ -38,6 +38,10 @@ body{
 .hide {
     display: none;
 }
-.show {
-    display: block;
+
+.flex-column{
+    flex-direction: column;
+}
+.flex-row{
+    flex-direction: row;
 }
