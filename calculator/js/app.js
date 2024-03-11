@@ -1,21 +1,43 @@
 const out_box = document.getElementById('box');
-const ouputI = document.getElementById('editabelOutput');
+const outputI = document.getElementById('editabelOutput');
 const output = document.getElementById('output');
 
-function textToDisplay(e) {
-    e.classList.remove('hide');
-    e.classList.add('show');
-}
+const firstBtns = document.querySelector('.btn123');
+const secondBtns = document.querySelector('.btn456');
+const thirdBtns = document.querySelector('.btn789');
+const lastBtns = document.querySelector('.btn0dotac');
+const signBtns = document.querySelector('.btnsign');
+const leftBtns = document.querySelector('.btnleft');
 
-output.addEventListener('click', function() {
-    textToDisplay(outputI);
-});
+const leftbtn = ["/", "="]
+const signbtn = ["+", "-", "x"]
+const lastbtn = ["0", ".", "AC"]
+for (let i = 0; i < 3; i++) {
+    signBtns.innerHTML += `<button type="button" class="btn" value="${signbtn[i]}">${signbtn[i]}</button>`;
+    firstBtns.innerHTML += `<button type="button" class="btn" value="${i+1}">${i+1}</button>`;
+    secondBtns.innerHTML += `<button type="button" class="btn" value="${i+4}">${i+4}</button>`;
+    thirdBtns.innerHTML += `<button type="button" class="btn" value="${i+7}">${i+7}</button>`;
+    lastBtns.innerHTML += `<button type="button" class="btn" value="${lastbtn[i]}">${lastbtn[i]}</button>`;
+    if (i < 2){
+        leftBtns.innerHTML += `<button type="button" class="btn" value="${leftbtn[i]}">${leftbtn[i]}</button>`
+    }
+}
 
 function clearOuput () {
     output.innerText = '';
     outputI.value = '';
     outputI.innerText = '';
 }
+
+function textToDisplay(e, f) {
+    e.style.display = 'block';
+    e.innerText += f.value;
+    f.style.display = 'none';
+}
+
+output.addEventListener('click', function() {
+    textToDisplay(outputI, output);
+});
 
 let atFirst = true;
 let result = 0;
@@ -37,7 +59,8 @@ allBtn.forEach( (btns) => btns.addEventListener('click', function (buttonKey) {
             console.log(buttonValue);
             allowChange = true;
         }
-    } else if (isNaN(Number(buttonValue)) && buttonValue !== ".") {
+    }
+    else if (isNaN(Number(buttonValue)) && buttonValue !== ".") {
         if (buttonValue !== "=" && buttonValue !== "AC"){
             lastpressed = buttonValue;
         }
