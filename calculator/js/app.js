@@ -78,4 +78,34 @@ allBtn.forEach( (btns) => btns.addEventListener('click', function (buttonKey) {
                 result /= Number(outputI.value);
                 clearOuput();
             }
+        } else if (buttonValue === "=") {
+            if (lastpressed !== "") {
+                if (allowChange === true){
+                    current = Number(outputI.value);
+                    allowChange = false;
+                }
+                console.log(current);
+
+                if (lastpressed === "+") {
+                    result += current
+                } else if (lastpressed === "-") {
+                    result -= current;
+                } else if (lastpressed === "*") {
+                    result *= current;
+                } else if (lastpressed === "/") {
+                    result /= current;
+                }
+            } else if (lastpressed === "") {
+                result = Number(outputI.value);
+            }
+            clearOuput();
+            output.innerText += result;
+            outputI.value += result;
+            outputI.innerText += result;
         }
+    }
+
+    //start calculating
+
+}));
+
